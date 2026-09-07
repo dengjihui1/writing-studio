@@ -2,7 +2,7 @@
 name: writing-studio
 description: Plan, draft, rewrite, polish, translate, humanize, or critique substantial Chinese or English writing through an evidence-bound editorial workflow. Use for end-to-end writing, expression-only polishing, deep first-pass reconstruction of formulaic prose, optional report-guided learning, or multi-stage work across essays, articles, academic prose, reports, technical explainers, business writing, marketing copy, applications, and narrative nonfiction. Prefer a narrower specialist skill when the request is only about journal-specific citations, statistics, peer review, or another specialized academic operation.
 metadata:
-  version: "1.2.0"
+  version: "1.2.1"
   author: "Personal workflow"
 ---
 

@@ -1,5 +1,7 @@
 # Writing Studio
 
+![Writing Studio — evidence-bound writing, two modes, one fidelity standard](assets/writing-studio-banner.png)
+
 **Evidence-bound writing and revision for Codex — with a strong first-pass workflow and an optional before/after report-learning mode.**
 
 Writing Studio is a reusable Codex skill for drafting, rewriting, polishing, translating, humanizing, and critiquing substantial Chinese or English prose. It is designed around one principle: better writing should come from clearer thought, stronger evidence relationships, and a recognisable authorial position—not from detector tricks or mechanical synonym replacement.
@@ -95,32 +97,7 @@ $writing-studio 使用双报告对比模式：对比修改前后文稿和两次 
 
 ## How it works
 
-```mermaid
-flowchart TD
-    A[Writing request] --> B{Comparable measured pair?}
-    B -- No --> C[Mode A: direct writing or single-draft revision]
-    B -- Yes --> D[Mode B: comparative report learning]
-
-    C --> E[Set evidence boundary and edit authority]
-    E --> F[Recover claims, evidence, limits, and paragraph jobs]
-    F --> G[Draft, polish, or reconstruct]
-
-    D --> H[Verify report-to-draft pairing and comparability]
-    H --> I[Map exited, persisted, entered, and unmeasured passages]
-    I --> J[Separate protected, conditional, editable, and mixed text]
-    J --> K[Form supported and rejected intervention hypotheses]
-    K --> G
-
-    G --> L[Fidelity and quality gates]
-    L --> M[Finished text or artifact]
-    M --> N{Accepted reusable correction?}
-    N -- No --> O[Stop]
-    N -- Yes --> P[Candidate rule]
-    P --> Q[Regression case and adjacent-case check]
-    Q --> R{Safe to promote?}
-    R -- Yes --> S[Scoped workflow improvement]
-    R -- No --> T[Narrow or reject the rule]
-```
+![Writing Studio workflow: Mode A direct writing and Mode B comparative learning converge at shared fidelity gates, followed by an optional correction-to-regression loop](assets/workflow-overview.png)
 
 The learning loop is deliberately conservative:
 
@@ -172,6 +149,10 @@ The helper extracts editorial evidence. It does not predict or optimise a detect
 writing-studio/
 ├── SKILL.md                         # entrypoint, routing, shared constraints
 ├── agents/openai.yaml               # Codex UI metadata and invocation policy
+├── assets/
+│   ├── writing-studio-icon.png      # Codex skill icon
+│   ├── writing-studio-banner.png    # README and social-preview artwork
+│   └── workflow-overview.png        # rendered two-mode workflow
 ├── references/
 │   ├── intake-and-routing.md        # mode and edit-depth selection
 │   ├── drafting.md                  # drafting workflow
@@ -193,9 +174,13 @@ The evaluation suite checks decisions and observable behaviour rather than exact
 
 Fabricated facts, quotations, citations, credentials, or experiences are automatic failures. So are detector guarantees and deliberate error insertion.
 
-## Visual identity
+## Brand assets
 
-The repository includes production-ready prompts and acceptance criteria for a Writing Studio icon, workflow illustration, and GitHub social-preview image. See [Visual Asset Briefs](docs/VISUAL_ASSET_BRIEFS.md). The prompts are designed for Nano Banana but remain usable with other image-generation tools.
+<p align="center">
+  <img src="assets/writing-studio-icon.png" alt="Writing Studio icon: an open manuscript, pen nib, and forward revision path" width="280">
+</p>
+
+The repository includes the selected Writing Studio icon, banner, and two-mode workflow artwork. Working design notes and discarded variants are intentionally excluded from the public skill.
 
 ## 中文介绍
 

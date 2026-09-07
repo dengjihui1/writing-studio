@@ -1,6 +1,8 @@
 interface:
   display_name: "Writing Studio"
   short_description: "双模式写作、深度润色与报告对比学习工作流"
+  icon_small: "./assets/writing-studio-icon.png"
+  icon_large: "./assets/writing-studio-icon.png"
   brand_color: "#315B5A"
   default_prompt: "Use $writing-studio to revise this draft directly, or compare paired drafts and reports when I provide them."
 policy:
