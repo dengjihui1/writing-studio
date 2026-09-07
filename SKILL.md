@@ -2,7 +2,7 @@
 name: writing-studio
 description: Plan, draft, rewrite, polish, translate, humanize, or critique substantial Chinese or English writing through an evidence-bound editorial workflow. Use for end-to-end writing, expression-only polishing, deep first-pass reconstruction of formulaic prose, optional report-guided learning, or multi-stage work across essays, articles, academic prose, reports, technical explainers, business writing, marketing copy, applications, and narrative nonfiction. Prefer a narrower specialist skill when the request is only about journal-specific citations, statistics, peer review, or another specialized academic operation.
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   author: "Personal workflow"
 ---
 
@@ -53,6 +53,7 @@ Read only the references needed for the request:
 - A single formulaic draft requiring deep humanization: [references/first-pass-reconstruction.md](references/first-pass-reconstruction.md).
 - Any drafted or materially revised prose: [references/human-writing.md](references/human-writing.md).
 - Mode B, or any supplied AI-writing highlights, similarity reports, or comparable versions: [references/detector-feedback.md](references/detector-feedback.md).
+- Reusable learning from accepted revisions or report pairs: [references/feedback-learning-loop.md](references/feedback-learning-loop.md).
 
 Do not load every reference by default.
 
@@ -123,4 +124,4 @@ Use the relevant artifact skill when DOCX, PDF, slides, spreadsheets, or another
 
 Before finalizing, read [references/quality-gates.md](references/quality-gates.md) and apply the proportional gate. For high-stakes work, run the full gate and a compact claim-evidence audit.
 
-When maintaining this skill, read [references/evaluation.md](references/evaluation.md), test representative cases and changed scripts, validate the package, and promote only lessons supported by repeated evidence.
+When maintaining this skill, read [references/feedback-learning-loop.md](references/feedback-learning-loop.md) and [references/evaluation.md](references/evaluation.md). Convert accepted corrections into scoped candidate rules and regression cases before changing default behaviour. Test representative and adjacent cases, validate changed scripts and the package, and promote only lessons supported by repeated evidence without integrity regressions.

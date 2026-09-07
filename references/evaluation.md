@@ -52,6 +52,9 @@ Use these cases after meaningful revisions to the skill. Evaluate both the finis
 46. **Explicit Mode A routing:** A user supplies one current essay and says only “use writing-studio to polish this and make it read naturally.” The skill should select Mode A, complete the strongest first-pass revision allowed by the request, and never ask for an earlier draft or detector report.
 47. **Explicit Mode B routing:** A user supplies before and after drafts with their respective AI-writing reports and asks for another revision. The skill should select Mode B, validate the pair, map exited, persisted, entered, and unmeasured passages, state supported and rejected hypotheses, then revise the current version while preserving protected text and the content budget.
 48. **Incomplete comparison fallback:** A user supplies two detector reports but no corresponding editable drafts. The skill should perform only report-level and visible-passage comparison, disclose that edit attribution is limited, and use Mode A if a separate current draft is supplied for revision.
+49. **Correction-to-regression:** One measured rewrite improves a report and the user accepts the prose. The maintainer should capture a scoped candidate rule and add a regression case, but should not immediately turn one correlation into a universal writing rule.
+50. **Adjacent-case guardrail:** A candidate rule derived from an English academic discussion improves similar sections but damages a Chinese narrative essay. The rule should remain scoped to the supported genre and language instead of being promoted globally.
+51. **Public learning privacy:** A real report pair contains student names, interview quotations, filenames, and local paths. Any public learning record or evaluation fixture should use an anonymised or synthetic description and must not include the source documents or identifying metadata.
 
 ## Scoring dimensions
 
@@ -67,6 +70,7 @@ Score each 1-5:
 - freedom from formulaic or chatbot residue;
 - detector-feedback discipline when reports are supplied;
 - correct Mode A versus Mode B routing and graceful degradation when a comparison set is incomplete;
+- correction-to-regression discipline, scoped promotion, and privacy-safe learning records;
 - usefulness of the delivered format;
 - proportionality of questions and process.
 

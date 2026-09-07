@@ -1,7 +1,8 @@
 interface:
   display_name: "Writing Studio"
-  short_description: "多体裁写作、深度润色与自然作者声音工作流"
-  default_prompt: "Use $writing-studio to improve this writing at the edit depth I request, preserving its evidence, protected text, content budget, claim strength, and authentic voice."
+  short_description: "双模式写作、深度润色与报告对比学习工作流"
+  brand_color: "#315B5A"
+  default_prompt: "Use $writing-studio to revise this draft directly, or compare paired drafts and reports when I provide them."
 policy:
   allow_implicit_invocation: true
 
