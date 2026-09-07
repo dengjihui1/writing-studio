@@ -193,6 +193,10 @@ The evaluation suite checks decisions and observable behaviour rather than exact
 
 Fabricated facts, quotations, citations, credentials, or experiences are automatic failures. So are detector guarantees and deliberate error insertion.
 
+## Visual identity
+
+The repository includes production-ready prompts and acceptance criteria for a Writing Studio icon, workflow illustration, and GitHub social-preview image. See [Visual Asset Briefs](docs/VISUAL_ASSET_BRIEFS.md). The prompts are designed for Nano Banana but remain usable with other image-generation tools.
+
 ## 中文介绍
 
 Writing Studio 是一个面向 Codex 的中英文写作技能包，支持从零写作、普通润色、深度重构、翻译、批评分析，以及基于前后两个版本和两次检测报告的对比学习。
@@ -213,4 +217,3 @@ Contributions are welcome when they improve a decision, preserve source fidelity
 ## License
 
 Released under the [MIT License](LICENSE).
-
