@@ -8,7 +8,7 @@ Writing Studio is a reusable Codex skill for drafting, rewriting, polishing, tra
 
 > One draft is enough. Historical versions and AI-writing reports are optional evidence, never prerequisites for a strong first result.
 
-[中文介绍](#中文介绍) · [Quick start](#quick-start) · [Research and evaluation](#research-and-evaluation) · [Safety and integrity](#safety-and-integrity)
+[中文介绍](#中文介绍) · [Quick start](#quick-start) · [Research and evaluation](#research-and-evaluation) · [Safety and integrity](#safety-and-integrity) · [Privacy](PRIVACY.md)
 
 ## Why this skill exists
 
@@ -139,6 +139,8 @@ The workflow protects:
 - the user's required content and approximate development.
 
 AI-writing reports and similarity reports remain separate. Similarity is reviewed for quotation, citation, and source-use integrity; zero similarity is not treated as a quality target.
+
+The skill itself does not run a developer-controlled server, database, telemetry service, or account system. User content is handled by the host environment and any external service the user deliberately invokes. See the full [Privacy Notice](PRIVACY.md).
 
 ## Report mapping helper
 
