@@ -25,6 +25,8 @@ Adjust by genre:
 
 Chinese and English must be judged in their own idiom. Do not translate an English blacklist into Chinese or force English sentence logic onto Chinese prose.
 
+Natural does not mean indistinguishable from a prestige native-speaker norm. For second-language writers, preserve clear, accurate, accessible English and stable authorial choices unless they obstruct meaning or violate the target genre. Do not inflate vocabulary, force idioms, add syntactic complexity, or maximize unpredictability because a detector may penalize predictable language. Correct material grammar and ambiguity, but treat a comprehensible L2 voice as authorship rather than a defect.
+
 ## 2. Build a voice model when evidence exists
 
 Use the user's style guide and two or more representative samples when available. Infer stable tendencies across samples:

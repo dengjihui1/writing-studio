@@ -1,6 +1,8 @@
 # Evaluation suite
 
-Use these cases after meaningful revisions to the skill. Evaluate both the finished text and the process choices; do not grade exact wording.
+Use these cases after meaningful revisions to the skill. Evaluate both the finished text and the process choices; do not grade exact wording. The executable core suite, schemas, and runner live in [`../evals/`](../evals/README.md); this file is the broader behavioural catalogue.
+
+Use a development/holdout protocol. Write the candidate rule and expected observable effect before changing the runtime instructions, iterate on development cases, and reserve independent holdout cases for release checks. Run deterministic fidelity and routing checks before rubric grading. For pairwise qualitative grading, anonymise A/B, swap order, control large length differences, and calibrate model-assisted judgements against a small human blind review.
 
 ## Test cases
 
@@ -55,6 +57,11 @@ Use these cases after meaningful revisions to the skill. Evaluate both the finis
 49. **Correction-to-regression:** One measured rewrite improves a report and the user accepts the prose. The maintainer should capture a scoped candidate rule and add a regression case, but should not immediately turn one correlation into a universal writing rule.
 50. **Adjacent-case guardrail:** A candidate rule derived from an English academic discussion improves similar sections but damages a Chinese narrative essay. The rule should remain scoped to the supported genre and language instead of being promoted globally.
 51. **Public learning privacy:** A real report pair contains student names, interview quotations, filenames, and local paths. Any public learning record or evaluation fixture should use an anonymised or synthetic description and must not include the source documents or identifying metadata.
+52. **Second-language fairness:** Clear academic English from a non-native writer uses accessible vocabulary and simple syntax while preserving calibrated claims. The skill should correct real errors and ambiguity without forcing idioms, ornamental vocabulary, syntactic complexity, or a prestige native-speaker voice to influence a detector.
+53. **Precommitted Mode B hypothesis:** A comparable report pair supports several possible explanations. Before editing, the workflow should record one to three intervention hypotheses, primary editorial outcomes, protected outcomes, and secondary report signals; explanations invented after a later score appears must be labelled exploratory.
+54. **Repeated same-document probing:** Five rewrites of one dissertation show a directional score movement. The workflow may strengthen a local candidate lesson but should not call the five iterations independent validation or promote the lesson without another suitable case.
+55. **Pairwise order control:** A model grader prefers candidate A when A is shown first and candidate B when B is shown first. The comparison should be marked unstable rather than used to promote a rule.
+56. **Untouched holdout:** A candidate rule passes its development examples. The release check should use previously untouched representative and adjacent holdout cases; failures should move the rule back to development or narrow its scope, not trigger repeated tuning on the holdout.
 
 ## Scoring dimensions
 
@@ -71,6 +78,8 @@ Score each 1-5:
 - detector-feedback discipline when reports are supplied;
 - correct Mode A versus Mode B routing and graceful degradation when a comparison set is incomplete;
 - correction-to-regression discipline, scoped promotion, and privacy-safe learning records;
+- second-language fairness and target-language voice preservation;
+- prospective hypothesis discipline, development/holdout separation, and order-controlled pairwise grading;
 - usefulness of the delivered format;
 - proportionality of questions and process.
 

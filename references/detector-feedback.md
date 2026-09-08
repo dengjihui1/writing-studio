@@ -2,7 +2,7 @@
 
 ## Contents
 
-1. Comparability, report types, and length controls
+1. Comparability, precommitted hypotheses, report types, and length controls
 2. Editable, conditional, and protected text
 3. Passage deltas and internal controls
 4. Intervention classification and escalation
@@ -50,9 +50,27 @@ Before revising, create a compact internal record with:
 4. protected, conditional, editable, and mixed ownership classes;
 5. the previous intervention mix: layout, surface, structural, and epistemic;
 6. recurring differences between exits, persistent passages, and local unhighlighted controls;
-7. supported next-pass hypotheses, rejected hypotheses, and the chosen change authority.
+7. the primary editorial outcome, chosen change authority, and protected content;
+8. one to three supported next-pass hypotheses, their observable quality effects, and rejected alternatives;
+9. which report measures are secondary diagnostics rather than success criteria.
 
 Do not start the next prose pass until this record identifies what should be preserved, what should change, and what the reports cannot establish.
+
+### Precommit the next intervention
+
+Write the next-pass hypotheses before seeing a third report or revising the target. This is a compact editorial precommitment, not a claim of formal experimental preregistration. It exists to separate a planned test from a story invented after the result.
+
+For each hypothesis, record:
+
+- **condition:** the repeated, editable problem observed in the pair and internal controls;
+- **intervention:** the smallest reasoning-, structure-, or expression-level change allowed by the user's authority;
+- **primary observable outcome:** the quality behaviour expected to improve, such as paragraph dependency, source synthesis, actor clarity, claim calibration, or voice fit;
+- **protected outcome:** the facts, citations, quotations, numbers, coverage, certainty, and approximate development that must not regress;
+- **secondary signal:** any later report movement, segment change, or qualifying-word-count change.
+
+Prefer hypotheses that could be rejected. For example: “If the persistent discussion cluster is driven by self-contained source cards, regrouping citations by disagreement should reduce paragraph interchangeability while preserving citation scope.” Do not use “make it less AI-like” as a hypothesis because it neither specifies the editorial mechanism nor the quality outcome.
+
+After the revision, report whether the primary quality behaviour changed before interpreting the detector. Label unplanned explanations as **exploratory**. Repeatedly editing the same document until a score moves is adaptive probing, not independent confirmation.
 
 ## 1. Establish comparability
 
@@ -223,6 +241,8 @@ Compare them by editorial function, not surface statistics. Ask whether exited p
 
 Require these contrasts to recur across several passages before turning them into a rule. Do not copy wording, punctuation, openings, paragraph length, or isolated quirks from an exited passage. The legitimate lesson is the change in reasoning, evidence use, and section dependency. A percentage movement produced by a combined rewrite is evidence that some intervention correlated with improvement, not a calibration table for manufacturing a further drop.
 
+Several passages from the same document are not fully independent observations. They may share a prompt, author, source base, section template, conversion path, and detector version. Keep the lesson as a candidate until the same directional editorial benefit appears in another suitable document or a synthetic regression case and survives an adjacent case where over-application would be harmful. Do not tune the rule repeatedly against the release holdout set.
+
 When a material movement occurs while facts, citations, protected text, argument, and overall length remain stable, treat that as evidence against a simple compression explanation. If the user has decided that the document is finished, switch to **learn-only mode**: freeze the artifact, record the evidence, update the skill and its evaluation cases, and make no further prose changes.
 
 ### Second reset for persistent section patterns
@@ -288,17 +308,19 @@ Run the **answer-shape test**: could the paragraph be reduced to a generic instr
 1. **Comparability and ownership:** record report facts; separate protected, conditional, editable, and mixed spans.
 2. **Delta diagnosis:** compare versions and classify report changes.
 3. **Internal-control profile:** compare persistent editable prose with substantial unhighlighted prose of the same type.
-4. **Strategy escalation:** identify the previous intervention class and prohibit a failed class from being repeated.
-5. **Argument reset:** recover claims, evidence, limits, and section dependency; write a materially different section-function sequence.
-6. **Source-blackout reconstruction:** draft persistent clusters from the ledger rather than the old sentences.
-7. **Seam and adjacency pass:** run dependency, swap, ancestry, closure, and seam tests.
-8. **Sentence pass:** remove formulaic wording, hollow transitions, mechanical symmetry, and uniform closure.
-9. **Fidelity pass:** compare names, numbers, quotations, citations, causality, scope, and certainty with the source.
-10. **Prompt-shape and density pass:** inspect nominalisation clusters, participial add-ons, coordinated noun strings, exhaustive coverage, and over-complete conclusions.
-11. **Section-dependency pass:** map entry type, citation staging, and final-sentence function across each persistent cluster; repair repeated self-contained answer cards and excessive closure density.
-12. **Independent read:** ask what still feels preassembled, over-complete, or interchangeable; revise only those passages.
-13. **Paired-report integrity pass:** if a similarity report is supplied, review its match categories and integrity flags separately; never optimise its percentage as part of the AI-writing pass.
-14. **Stop check:** honour a user decision to end document revision; convert the remaining evidence into workflow learning rather than continuing to edit.
+4. **Hypothesis precommitment:** name the intended intervention, primary quality outcome, protected outcomes, rejected alternatives, and secondary report signal before editing.
+5. **Strategy escalation:** identify the previous intervention class and prohibit a failed class from being repeated.
+6. **Argument reset:** recover claims, evidence, limits, and section dependency; write a materially different section-function sequence.
+7. **Source-blackout reconstruction:** draft persistent clusters from the ledger rather than the old sentences.
+8. **Seam and adjacency pass:** run dependency, swap, ancestry, closure, and seam tests.
+9. **Sentence pass:** remove formulaic wording, hollow transitions, mechanical symmetry, and uniform closure.
+10. **Fidelity pass:** compare names, numbers, quotations, citations, causality, scope, and certainty with the source.
+11. **Prompt-shape and density pass:** inspect nominalisation clusters, participial add-ons, coordinated noun strings, exhaustive coverage, and over-complete conclusions.
+12. **Section-dependency pass:** map entry type, citation staging, and final-sentence function across each persistent cluster; repair repeated self-contained answer cards and excessive closure density.
+13. **Independent read:** ask what still feels preassembled, over-complete, or interchangeable; revise only those passages.
+14. **Paired-report integrity pass:** if a similarity report is supplied, review its match categories and integrity flags separately; never optimise its percentage as part of the AI-writing pass.
+15. **Outcome classification:** score the primary editorial outcome and fidelity first; classify later detector observations as supportive, contradictory, ambiguous, or unmeasured.
+16. **Stop check:** honour a user decision to end document revision; convert the remaining evidence into workflow learning rather than continuing to edit.
 
 The helper `scripts/turnitin_passage_map.py` can map coloured report rectangles back to Markdown paragraphs and produce a reproducible passage table. Use it only when the report format is compatible and visually confirm representative matches.
 
@@ -312,12 +334,13 @@ When useful, provide:
 - the strongest recurring passage patterns;
 - the protected or conventional material that limits what can legitimately be changed;
 - what changed between versions and what remains uncertain;
+- the precommitted intervention hypothesis, primary quality outcome, and whether it was supported;
 - the reported word-count movement, especially when it rules out a simple compression explanation;
 - similarity match categories and integrity flags separately, when a similarity report was supplied;
 - the clean revised text or edited file;
 - a short fidelity note covering citations, facts, and claim strength.
 
-Use language such as “correlates with”, “is consistent with”, or “suggests”. Do not claim that paragraph length, burstiness, a word blacklist, or any single device caused a detector result.
+Use language such as “correlates with”, “is consistent with”, or “suggests”. Mark explanations formed only after seeing the result as exploratory. Do not claim that paragraph length, burstiness, a word blacklist, or any single device caused a detector result.
 
 ### Default Mode B delivery
 

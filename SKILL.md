@@ -2,7 +2,7 @@
 name: writing-studio
 description: Plan, draft, rewrite, polish, translate, humanize, or critique substantial Chinese or English writing through an evidence-bound editorial workflow. Use for end-to-end writing, expression-only polishing, deep first-pass reconstruction of formulaic prose, optional report-guided learning, or multi-stage work across essays, articles, academic prose, reports, technical explainers, business writing, marketing copy, applications, and narrative nonfiction. Prefer a narrower specialist skill when the request is only about journal-specific citations, statistics, peer review, or another specialized academic operation.
 metadata:
-  version: "1.2.1"
+  version: "1.3.0"
   author: "Personal workflow"
 ---
 
@@ -100,6 +100,7 @@ Do not add deliberate errors, slang, fake anecdotes, invisible characters, trans
 For Mode B, follow the input contract and full comparison workflow in [references/detector-feedback.md](references/detector-feedback.md). If the pair is incomplete, state the narrower inference boundary and fall back to Mode A for any requested revision.
 
 - Establish version comparability before attributing any movement.
+- Before editing, record the primary quality goal, change authority, protected content, and one to three testable intervention hypotheses. Treat later detector movement as a secondary observation, not the success criterion.
 - Separate protected quotations, conventional text, and editable author prose.
 - Compare exited, persistent, entered, unhighlighted, and unmeasured passages.
 - Inspect reasoning function, evidence order, paragraph ancestry, section dependency, and report segmentation—not isolated words or sentence lengths.
@@ -124,4 +125,4 @@ Use the relevant artifact skill when DOCX, PDF, slides, spreadsheets, or another
 
 Before finalizing, read [references/quality-gates.md](references/quality-gates.md) and apply the proportional gate. For high-stakes work, run the full gate and a compact claim-evidence audit.
 
-When maintaining this skill, read [references/feedback-learning-loop.md](references/feedback-learning-loop.md) and [references/evaluation.md](references/evaluation.md). Convert accepted corrections into scoped candidate rules and regression cases before changing default behaviour. Test representative and adjacent cases, validate changed scripts and the package, and promote only lessons supported by repeated evidence without integrity regressions.
+When maintaining this skill, read [references/feedback-learning-loop.md](references/feedback-learning-loop.md), [references/evaluation.md](references/evaluation.md), and [evals/README.md](evals/README.md). Convert accepted corrections into scoped candidate rules and development cases before changing default behaviour. Keep an independent holdout set, test representative and adjacent cases, validate changed scripts and the package, and promote only lessons supported by repeated evidence without integrity regressions.
