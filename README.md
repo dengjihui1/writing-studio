@@ -8,7 +8,7 @@ Writing Studio is a reusable Codex skill for drafting, rewriting, polishing, tra
 
 > One draft is enough. Historical versions and AI-writing reports are optional evidence, never prerequisites for a strong first result.
 
-[中文介绍](#中文介绍) · [Quick start](#quick-start) · [How it works](#how-it-works) · [Safety and integrity](#safety-and-integrity)
+[中文介绍](#中文介绍) · [Quick start](#quick-start) · [Research and evaluation](#research-and-evaluation) · [Safety and integrity](#safety-and-integrity)
 
 ## Why this skill exists
 
@@ -18,6 +18,16 @@ General-purpose writing prompts often produce one of two weak outcomes:
 - an aggressive rewrite that quietly changes evidence, claim strength, quotations, or the author's intended meaning.
 
 Writing Studio separates **execution mode** from **edit authority**. It first decides what evidence is available, then decides how deeply it may intervene. This gives a single draft the strongest justified first pass while allowing measured before/after revisions to become structured learning evidence.
+
+## Research and evaluation
+
+Version 1.3.0 turns the learning workflow into a testable engineering process:
+
+`external evidence → precommitted hypothesis → development case → adjacent-case guardrail → holdout confirmation`
+
+The repository includes a 16-case executable core suite with explicit, implicit, contextual, and negative triggers; Mode A and Mode B behaviour; protected quotations and numbers; second-language fairness; detector-evasion pressure; and specialist-routing controls. A separate 56-case catalogue covers broader editorial decisions.
+
+The method draws on OpenAI's skill-evaluation guidance, Turnitin's own limits for interpreting AI-writing reports, peer-reviewed detector reliability and non-native-writer fairness research, and a critical review of public humanizer skills. Public pattern lists are treated as sources of hypotheses—not proof. See [Research basis and evaluation protocol](docs/research-and-evaluation.md) for the sources, adopted rules, rejected tactics, testable claims, and remaining limitations.
 
 ## Two execution modes
 
@@ -153,6 +163,13 @@ writing-studio/
 │   ├── writing-studio-icon.png      # Codex skill icon
 │   ├── writing-studio-banner.png    # README and social-preview artwork
 │   └── workflow-overview.png        # rendered two-mode workflow
+├── docs/
+│   └── research-and-evaluation.md   # sources, hypotheses, and limits
+├── evals/
+│   ├── README.md                    # repeatable evaluation protocol
+│   ├── core-cases.jsonl             # 10 development + 6 holdout cases
+│   ├── rubric.schema.json           # single-output grading record
+│   └── pairwise.schema.json         # order-swapped A/B record
 ├── references/
 │   ├── intake-and-routing.md        # mode and edit-depth selection
 │   ├── drafting.md                  # drafting workflow
@@ -163,14 +180,21 @@ writing-studio/
 │   ├── feedback-learning-loop.md    # correction-to-regression evolution
 │   ├── genre-playbooks.md           # genre-specific routing
 │   ├── quality-gates.md             # fidelity and delivery checks
-│   └── evaluation.md                # 51 behavioural evaluation cases
+│   └── evaluation.md                # 56 behavioural evaluation cases
 └── scripts/
+    ├── run_evals.py                 # validation and cold-start traces
     └── turnitin_passage_map.py      # optional report-to-passage mapper
 ```
 
 ## Evaluation philosophy
 
-The evaluation suite checks decisions and observable behaviour rather than exact wording. A release candidate should have no score below 4/5 and no integrity failure across task fit, source fidelity, structural coherence, voice preservation, natural specificity, report discipline, mode routing, learning-scope discipline, and delivery usefulness.
+The evaluation suite checks decisions and observable behaviour rather than exact wording. Run the deterministic core validation with:
+
+```text
+python scripts/run_evals.py --validate
+```
+
+A release candidate should have no score below 4/5 and no integrity failure across task fit, source fidelity, structural coherence, voice preservation, natural specificity, report discipline, mode routing, learning-scope discipline, and delivery usefulness. Development and holdout cases remain separate; qualitative A/B grading is repeated with presentation order swapped.
 
 Fabricated facts, quotations, citations, credentials, or experiences are automatic failures. So are detector guarantees and deliberate error insertion.
 
@@ -194,6 +218,8 @@ Writing Studio 是一个面向 Codex 的中英文写作技能包，支持从零�
 这个技能追求的是高质量、逻辑清楚、具有真实作者判断的文字。检测报告只作为有噪声的诊断证据，不被当作作者身份判决，也不会通过错别字、隐形字符、随机句长等方式规避检测。
 
 当一次真实修改被用户接受，技能不会立刻把它写成万能规则，而是先形成候选经验，再建立回归案例和相邻场景检查。只有经过验证、没有破坏事实与文章质量的经验，才会进入默认工作流。
+
+从 1.3.0 起，这套验证过程已经落成可运行的核心评测：先在开发案例上迭代，再用未参与调参的留出案例确认；检测率只作为辅助观察，事实保真、逻辑结构、作者声音、修改权限和非母语公平性才是主要指标。完整研究依据与限制见 [研究与评测说明](docs/research-and-evaluation.md)。
 
 ## Contributing
 
