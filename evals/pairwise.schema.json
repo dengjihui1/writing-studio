@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dengjihui1/writing-studio/evals/pairwise.schema.json",
+  "title": "Writing Studio order-swapped pairwise record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "candidate_a", "candidate_b", "first_order", "swapped_order", "length_ratio", "decision", "notes"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "candidate_a": {"type": "string", "minLength": 1},
+    "candidate_b": {"type": "string", "minLength": 1},
+    "first_order": {"$ref": "#/$defs/judgement"},
+    "swapped_order": {"$ref": "#/$defs/judgement"},
+    "length_ratio": {"type": "number", "exclusiveMinimum": 0},
+    "human_calibration": {"type": ["string", "null"]},
+    "decision": {"type": "string", "enum": ["a", "b", "tie", "unstable", "integrity-failure"]},
+    "notes": {"type": "string"}
+  },
+  "$defs": {
+    "judgement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["presented_first", "winner", "reason"],
+      "properties": {
+        "presented_first": {"type": "string", "enum": ["a", "b"]},
+        "winner": {"type": "string", "enum": ["a", "b", "tie", "integrity-failure"]},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}
