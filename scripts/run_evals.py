@@ -170,15 +170,16 @@ def recursive_text(value: Any) -> str:
 
 def extract_trace_metrics(events: list[dict[str, Any]]) -> tuple[str, int, dict[str, int], bool]:
     final_chunks: list[str] = []
-    command_count = 0
+    command_ids: set[str] = set()
     token_usage: dict[str, int] = {}
     trace_text = recursive_text(events).replace("\\", "/").lower()
+    trace_text = re.sub(r"/+", "/", trace_text)
     for event in events:
         item = event.get("item") if isinstance(event, dict) else None
         if isinstance(item, dict):
             item_type = str(item.get("type", ""))
             if item_type in {"command_execution", "command", "tool_call"}:
-                command_count += 1
+                command_ids.add(str(item.get("id", f"anonymous-{len(command_ids)}")))
             if item_type in {"agent_message", "message"} and isinstance(item.get("text"), str):
                 final_chunks.append(item["text"])
         usage = event.get("usage") if isinstance(event, dict) else None
@@ -186,8 +187,14 @@ def extract_trace_metrics(events: list[dict[str, Any]]) -> tuple[str, int, dict[
             for key, value in usage.items():
                 if isinstance(value, int):
                     token_usage[key] = max(token_usage.get(key, 0), value)
-    skill_observed = "writing-studio/skill.md" in trace_text
-    return "\n".join(final_chunks).strip(), command_count, token_usage, skill_observed
+    # Explicitly invoked skills may have SKILL.md injected into context and then
+    # read only routed references. Accept either the entrypoint or any file read
+    # under the installed skill root as observable invocation evidence.
+    skill_observed = (
+        "writing-studio/skill.md" in trace_text
+        or ".codex/skills/writing-studio/" in trace_text
+    )
+    return "\n".join(final_chunks).strip(), len(command_ids), token_usage, skill_observed
 
 
 def run_live_case(case: dict[str, Any], timeout: int) -> dict[str, Any]:
