@@ -1,5 +1,7 @@
 # Writing Studio
 
+![Jihui](assets/brand/jihui-wordmark.png)
+
 ![Writing Studio — evidence-bound writing, two modes, one fidelity standard](assets/writing-studio-banner.png)
 
 **Evidence-bound writing and revision for Codex — with a strong first-pass workflow and an optional before/after report-learning mode.**
